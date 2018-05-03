@@ -1,0 +1,68 @@
+var express = require('express');
+var router = express.Router();
+var request = require('request');
+
+var config = require('../../config/index.json');
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.json({ title: 'Express' });
+});
+
+/**
+ * search for gist list for a username
+ * username: param passed in the URL 
+ * Sample URL: https://api.github.com/users/octocat/gists
+ */
+router.get('/search/:username', function(req, res, next) {
+  var searchReq = {
+    url: config.service.gistURL.replace("{0}",req.params.username),
+    headers: {
+      'User-Agent': 'Awesome-Octocat-App'
+    }
+  };
+  
+  request(searchReq, function (error, response, body) {
+    if (!error) {
+      if(response.statusCode === 200) {
+        res.json({status:"success", resp: body});
+      }
+      else {
+        res.json({status:"fail", resp: {err: response.statusMessage}});
+      }  
+    }
+    else {
+      res.json({status:"error", resp: {err: error.statusMessage}});
+    }
+  });
+});
+
+/**
+ * search for forks for a given gist
+ * id: param passed in the URL 
+ * Sample URL: https://api.github.com/gists/6cad326836d38bd3a7ae/forks
+ */
+router.get('/forks/:id', function(req, res, next) {
+  var forksReq = {
+    url: config.service.forkURL.replace("{0}",req.params.id),
+    headers: {
+      'User-Agent': 'Awesome-Octocat-App'
+    }
+  };
+  
+  request(forksReq, function (error, response, body) {
+    if (!error) {
+      if(response.statusCode === 200) {
+        res.json({status:"success", resp: body});
+      }
+      else {
+        res.json({status:"fail", resp: {err: response.statusMessage}});
+      }  
+    }
+    else {
+      res.json({status:"error", resp: {err: error.statusMessage}});
+    }
+  });
+});
+
+module.exports = router;

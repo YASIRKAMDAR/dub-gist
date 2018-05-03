@@ -1,0 +1,6 @@
+{
+    "service": {
+        "gistURL": "https://api.github.com/users/{0}/gists",
+        "forkURL": "https://api.github.com/gists/{0}/forks"
+    }
+}
