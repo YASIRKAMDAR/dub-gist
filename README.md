@@ -43,7 +43,7 @@ the fork. --> Implemented using gists/<forks list id>/forks from the Github gist
 6) Use the url following url to run the application
 ` http://localhost:3000/ `
 
-## design and implementation decisions 
+## Design and implementation decisions 
 The application stack used is as follows
 1) NodeJs Express Backend for API Gateway and integration
 2) React application frontend (Creat react app) [Webpack, es6]
@@ -52,20 +52,20 @@ The application stack used is as follows
 
 ## Implementation plan
 STEP 1) Service integration - two service integrated to receive all the data required (https://api.github.com/)
-    a) /users/octocat/gists: to fetch all the user related gists
-    b) /gists/<username>/forks: to fetch the last 3 forks related gists (the filter is applied on the serverside to reduce redus store size on the client)
+a) /users/octocat/gists: to fetch all the user related gists
+b) /gists/<username>/forks: to fetch the last 3 forks related gists (the filter is applied on the serverside to reduce redus store size on the client)
 STEP 2) Frontend - Created a single page app having the following components
-    a) Header (responsive consist on app logo)
-    b) Search (page logo with a search input and a button to fetch the gist list of a user)
-    c) Results (bootstrap card to display each gits)
-    d) forks (consist of a collapsable card block that displays the list of last 3 forks on demand)
-    e) Loading (an overlay loading block that can be available on demand for any xhr call)
+a) Header (responsive consist on app logo)
+b) Search (page logo with a search input and a button to fetch the gist list of a user)
+c) Results (bootstrap card to display each gits)
+d) forks (consist of a collapsable card block that displays the list of last 3 forks on demand)
+e) Loading (an overlay loading block that can be available on demand for any xhr call)
 STEP 3) Deployment plan
-    a) create appropriate pagcake.json settings to deploy the app on heroku
-    b) setup a new app on github
-    c) use git repository to deploy the application on heroku 
+a) create appropriate pagcake.json settings to deploy the app on heroku
+b) setup a new app on github
+c) use git repository to deploy the application on heroku 
 
-##potential improvements
+## Potential improvements
 1) Design of the error message can be improved and placed on top of the page.
 2) "Loading!" message for the fork and the "no forks to display" message can be butified using appropriate loading images and bootstrap blocks.
 3) Get forks button can be a pill with a different satae for both expand and collapse state.
