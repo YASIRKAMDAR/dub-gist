@@ -17,9 +17,13 @@ class Results extends React.Component {
         else {
             list = null;
         }
-        switch (list)
+        var option = -1;
+        if(list) {
+            option = list.length;
+        }
+        switch (option)
         {
-            case null:
+            case -1:
                 if(this.props.gists !== null) {
                     return (
                         <Row id="resultsBlock">
@@ -34,12 +38,13 @@ class Results extends React.Component {
                 else {
                     return (<p></p>);
                 }
-            case []:
-                return  <p></p>
-            case undefined:
-                return  <p></p>
-            case false:
-                return <p>No results to display</p>
+            case 0:
+                return (
+                    <Row id="resultsBlock">
+                        <Col md="10" lg="8" className="mr-auto mx-auto" sm="12" xs="12">
+                            <div className="alert alert-info">No results to display</div>
+                        </Col>
+                    </Row>)
             default:
                 return (
                     <Row id="resultsBlock">
