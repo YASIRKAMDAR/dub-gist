@@ -8,9 +8,6 @@ class Forks extends React.Component {
   constructor(props) {
     super(props);
     this.onEntering = this.onEntering.bind(this);
-    this.onEntered = this.onEntered.bind(this);
-    this.onExiting = this.onExiting.bind(this);
-    this.onExited = this.onExited.bind(this);
     this.toggle = this.toggle.bind(this);
     this.state = { collapse: false, status: 'Closed', loaded: false };
   }
