@@ -22,7 +22,8 @@ class Search extends React.Component {
         const value = e.target.value;
         this.setState({[name]: value});
       }
-    getAllGists(params) {
+    getAllGists(e) {
+        e.preventDefault();
         this.props.loading(true);
         this.props.getGists(this.state.gistuser);
     }
@@ -33,7 +34,7 @@ class Search extends React.Component {
                     <Card className="text-center">
                         <CardBody>
                             <img src={logo} alt="logo" className="img-fluid search-logo"/>
-                            <Form>
+                            <Form onSubmit={(event) => this.getAllGists(event)}>
                                 <Row> 
                                     <Col md="10" lg="10" sm="10" className="mr-auto mx-auto">   
                                         <FormGroup className="label-animation ">
