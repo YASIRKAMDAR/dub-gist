@@ -51,19 +51,19 @@ The application stack used is as follows
 4) Redux to maintain the state of the App in the redux store
 
 ## Implementation plan
-STEP 1) Service integration - two service integrated to receive all the data required (https://api.github.com/)
-a) /users/octocat/gists: to fetch all the user related gists
-b) /gists/<username>/forks: to fetch the last 3 forks related gists (the filter is applied on the serverside to reduce redus store size on the client)
-STEP 2) Frontend - Created a single page app having the following components
-a) Header (responsive consist on app logo)
-b) Search (page logo with a search input and a button to fetch the gist list of a user)
-c) Results (bootstrap card to display each gits)
-d) forks (consist of a collapsable card block that displays the list of last 3 forks on demand)
-e) Loading (an overlay loading block that can be available on demand for any xhr call)
-STEP 3) Deployment plan
-a) create appropriate pagcake.json settings to deploy the app on heroku
-b) setup a new app on github
-c) use git repository to deploy the application on heroku 
+### STEP 1: Service integration - two service integrated to receive all the data required (https://api.github.com/)
+1) /users/octocat/gists: to fetch all the user related gists
+2) /gists/<username>/forks: to fetch the last 3 forks related gists (the filter is applied on the serverside to reduce redus store size on the client)
+### STEP 2: Frontend - Created a single page app having the following components
+1) Header (responsive consist on app logo)
+2) Search (page logo with a search input and a button to fetch the gist list of a user)
+3) Results (bootstrap card to display each gits)
+4) forks (consist of a collapsable card block that displays the list of last 3 forks on demand)
+5) Loading (an overlay loading block that can be available on demand for any xhr call)
+### STEP 3: Deployment plan
+1) create appropriate pagcake.json settings to deploy the app on heroku
+2) setup a new app on github
+3) use git repository to deploy the application on heroku 
 
 ## Potential improvements
 1) Design of the error message can be improved and placed on top of the page.
