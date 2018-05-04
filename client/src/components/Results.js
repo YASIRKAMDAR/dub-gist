@@ -25,7 +25,7 @@ class Results extends React.Component {
                         <Row id="resultsBlock">
                             <Col md="10" lg="8" className="mr-auto mx-auto" sm="12" xs="12">
                             <div className="alert alert-danger">
-                                <strong>Error! </strong> {this.props.gists.resp}.
+                                {this.props.gists.resp}.
                             </div>
                             </Col>
                         </Row>
