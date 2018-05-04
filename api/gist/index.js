@@ -49,7 +49,7 @@ router.get('/forks/:id', function(req, res, next) {
     id: req.params.id,
     url: config.service.forkURL.replace("{0}",req.params.id),
     headers: {
-      'User-Agent': 'Octocat-App'
+      'User-Agent': 'deploy-awesome-App'
     }
   };
   
