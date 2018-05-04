@@ -44,7 +44,7 @@ class Search extends React.Component {
                                         </FormGroup>
                                     </Col>
                                     <Col md="2" lg="2" sm="2" className="mr-auto mx-auto gist-button">
-                                            <Button onClick={(event) => this.getAllGists(event)}>Get gists</Button>
+                                            <Button onClick={(event) => this.getAllGists(event)} disabled={!this.state.gistuser}>Get gists</Button>
                                             <img src={loading} className="mr-auto mx-auto" alt="loading"/>
                                     </Col>
                                 </Row>
