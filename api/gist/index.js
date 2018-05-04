@@ -21,8 +21,10 @@ router.get('/search/:username', function(req, res, next) {
       'User-Agent': 'Awesome-Octocat-App'
     }
   };
+  // Log request for tracking on Heroku
   console.log(searchReq);
   request(searchReq, function (error, response, body) {
+    // Log response for tracking on Heroku
     console.log(error, response, body);
     if (!error) {
       if(response.statusCode === 200) {
@@ -52,8 +54,11 @@ router.get('/forks/:id', function(req, res, next) {
       'User-Agent': 'deploy-awesome-App'
     }
   };
-  
+  // Log request for tracking on Heroku
+  console.log(forksReq);
   request(forksReq, function (error, response, body) {
+    // Log request for tracking on Heroku
+    console.log(error, response, body);
     if (!error) {
       if(response.statusCode === 200) {
         var forks = JSON.parse(body);
