@@ -21,18 +21,19 @@ router.get('/search/:username', function(req, res, next) {
       'User-Agent': 'Awesome-Octocat-App'
     }
   };
-  
+  console.log(searchReq);
   request(searchReq, function (error, response, body) {
+    console.log(error, response, body);
     if (!error) {
       if(response.statusCode === 200) {
         res.json({status:"success", resp: body});
       }
       else {
-        res.json({status:"fail", resp: {err: response.statusMessage}});
+        res.json({status:"fail", resp: response.statusMessage});
       }  
     }
     else {
-      res.json({status:"error", resp: {err: error.statusMessage}});
+      res.json({status:"error", resp: error.statusMessage});
     }
   });
 });
@@ -43,17 +44,21 @@ router.get('/search/:username', function(req, res, next) {
  * Sample URL: https://api.github.com/gists/6cad326836d38bd3a7ae/forks
  */
 router.get('/forks/:id', function(req, res, next) {
+  var forkid = req.params.id;
   var forksReq = {
+    id: req.params.id,
     url: config.service.forkURL.replace("{0}",req.params.id),
     headers: {
-      'User-Agent': 'Awesome-Octocat-App'
+      'User-Agent': 'Octocat-App'
     }
   };
   
   request(forksReq, function (error, response, body) {
     if (!error) {
       if(response.statusCode === 200) {
-        res.json({status:"success", resp: body});
+        var forks = JSON.parse(body);
+        var top3forks =  forks.slice(-3);
+        res.json({status:"success", id:forkid, resp: top3forks });
       }
       else {
         res.json({status:"fail", resp: {err: response.statusMessage}});
