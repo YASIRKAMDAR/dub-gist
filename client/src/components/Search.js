@@ -24,8 +24,10 @@ class Search extends React.Component {
       }
     getAllGists(e) {
         e.preventDefault();
-        this.props.loading(true);
-        this.props.getGists(this.state.gistuser);
+        if(this.state.gistuser !== "") { 
+            this.props.loading(true);
+            this.props.getGists(this.state.gistuser);
+        }
     }
     render() {
         return (
