@@ -9,23 +9,17 @@ class Results extends React.Component {
     componentWillMount() {
         this.props.loading(false);
     }
-    componentDidMount() {
-    }
-    
     render() {
         var list = null;
-        console.log("this.props.gists", this.props.gists);
         if(this.props.gists !== null && this.props.gists.status === "success") {
             list = JSON.parse(this.props.gists.resp);
         }
         else {
             list = null;
         }
-        console.log("list",list);
         switch (list)
         {
             case null:
-                console.log(this.props.gists);
                 if(this.props.gists !== null) {
                     return (
                         <Row id="resultsBlock">

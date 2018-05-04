@@ -22,25 +22,11 @@ class Forks extends React.Component {
     }
   }
 
-  onEntered() {
-    this.setState({ status: 'Opened' });
-  }
-
-  onExiting() {
-    this.setState({ status: 'Closing...' });
-  }
-
-  onExited() {
-    console.log()
-    this.setState({ status: 'Closed' });
-  }
-
   toggle() {
     this.setState({ collapse: !this.state.collapse });
   }
   
   render() {
-    console.log(this.props.cat, this.props.data);
     var option = -1;
     if(this.props.data) {
       option = this.props.data.length;
@@ -51,9 +37,6 @@ class Forks extends React.Component {
           <Collapse
             isOpen={this.state.collapse}
             onEntering={this.onEntering}
-            onEntered={this.onEntered}
-            onExiting={this.onExiting}
-            onExited={this.onExited}
           >
             {(() => {
                 switch (option)
