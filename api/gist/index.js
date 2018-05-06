@@ -18,7 +18,7 @@ router.get('/search/:username', function(req, res, next) {
   var searchReq = {
     url: config.service.gistURL.replace("{0}",req.params.username),
     headers: {
-      'User-Agent': 'awesome-App'
+      'User-Agent': 'awesome-App' + Math.random()
     }
   };
   // Log request for tracking on Heroku
@@ -51,7 +51,7 @@ router.get('/forks/:id', function(req, res, next) {
     id: req.params.id,
     url: config.service.forkURL.replace("{0}",req.params.id),
     headers: {
-      'User-Agent': 'deploy-awesome-App'
+      'User-Agent': 'deploy-awesome-App' + Math.random()
     }
   };
   // Log request for tracking on Heroku
