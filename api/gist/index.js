@@ -18,7 +18,7 @@ router.get('/search/:username', function(req, res, next) {
   var searchReq = {
     url: config.service.gistURL.replace("{0}",req.params.username),
     headers: {
-      'User-Agent': 'Awesome-Octocat-App'
+      'User-Agent': 'awesome-App'
     }
   };
   // Log request for tracking on Heroku
